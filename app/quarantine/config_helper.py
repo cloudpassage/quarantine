@@ -13,7 +13,7 @@ class ConfigHelper(object):
         self.match_list = ConfigHelper.get_match_list("/conf/target-events")
         self.start_timestamp = ConfigHelper.get_timestamp()
         self.ua_string = "Halo-Toolbox-Quarantine/2.0"
-        self.max_threads = 10
+        self.max_threads = 1
         self.halo_batch_size = 20
 
     @classmethod
