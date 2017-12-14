@@ -13,10 +13,11 @@ fixture_path = os.path.join(here_dir, "../fixture/")
 
 
 class TestConfigHelper:
-    def test_get_match_list(self):
+    def test_get_match_list(self, monkeypatch):
         control = ["first_event_type", "secondeventtype", "third_event_type"]
         good_file = os.path.join(fixture_path, "good_events")
-        processed = quarantine.ConfigHelper.get_match_list(good_file)
+        monkeypatch.setenv("MATCH_FILE", good_file)
+        processed = quarantine.ConfigHelper.get_match_list()
         assert control == processed
 
     def test_get_timestamp_inferred(self):
