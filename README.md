@@ -40,8 +40,7 @@ all outbound traffic, and only allows inbound traffic from Ghostports users.
 * Create a quarantine group in your Halo account, with the appropriately
 restrictive firewall rules.
 
-
-## Using the tool
+## Using the tool (containerized)
 Clone the code and build the container:
 
         git clone https://github.com/cloudpassage/quarantine
@@ -91,6 +90,31 @@ progress while consuming your events stream.
 Optionally, you can add `-v PATH_TO/target-events:/conf/target-events`,
 replacing `PATH_TO` with the path to the directory enclosing your customized
 `target-events` file.
+
+## Using the tool (run natively)
+* Requirements: Python 2.7.10+
+* Clone the repo: `git clone https://github.com/cloudpassage/quarantine`
+* Enter the repo and install dependencies:
+`cd quarantine && pip install -r requirements.txt`
+* Set these environment variables:
+
+
+| Variable            | Purpose                                              |
+|---------------------|------------------------------------------------------|
+| HALO_API_KEY        | Halo API key ID (administrative privileges required) |
+| HALO_API_SECRET_KEY | Halo API key secret                                  |
+| HALO_QUARANTINE_GRP | Halo quarantine group name                           |
+| MATCH_FILE          | Path to file containing events to match (see "How it works", above)  |
+
+
+* Optionally, define these as well:
+
+| Variable            | Purpose                                   |
+|---------------------|-------------------------------------------|
+| HALO_EVENTS_START   | ISO8601 timestamp for starting event      |
+
+* Run the tool: `python ./app/runner.py`
+
 
 
 <!---

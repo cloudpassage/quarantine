@@ -10,15 +10,16 @@ class ConfigHelper(object):
         self.halo_secret = os.getenv("HALO_API_SECRET_KEY")
         self.quarantine_grp_name = os.getenv("$QUARANTINE_GROUP_NAME",
                                              "Quarantine")
-        self.match_list = ConfigHelper.get_match_list("/conf/target-events")
+        self.match_list = ConfigHelper.get_match_list()
         self.start_timestamp = ConfigHelper.get_timestamp()
         self.ua_string = "Halo-Toolbox-Quarantine/2.0"
         self.max_threads = 10
         self.halo_batch_size = 20
 
     @classmethod
-    def get_match_list(cls, target_file):
+    def get_match_list(cls):
         match_lines = []
+        target_file = os.getenv("MATCH_FILE", "/conf/target_events")
         with open(target_file, 'r') as target:
             for line in target.readlines():
                 if not re.match('^$', line):
