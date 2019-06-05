@@ -12,7 +12,7 @@ class ConfigHelper(object):
                                              "Quarantine")
         self.match_list = ConfigHelper.get_match_list()
         self.start_timestamp = ConfigHelper.get_timestamp()
-        self.ua_string = "Halo-Toolbox-Quarantine/2.0"
+        self.ua_string = "Halo-Toolbox-Quarantine/%s" % self.get_tool_version()
         self.max_threads = 1
         self.halo_batch_size = 20
 
@@ -40,3 +40,13 @@ class ConfigHelper(object):
         today = date.today()
         retval = today.isoformat()
         return retval
+
+    def get_tool_version(self):
+        """Get version of this tool from the __init__.py file."""
+        here_path = os.path.abspath(os.path.dirname(__file__))
+        init_file = os.path.join(here_path, "__init__.py")
+        ver = 0
+        with open(init_file, 'r') as i_f:
+            rx_compiled = re.compile(r"\s*__version__\s*=\s*\"(\S+)\"")
+            ver = rx_compiled.search(i_f.read()).group(1)
+        return ver
