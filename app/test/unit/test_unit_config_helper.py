@@ -27,4 +27,4 @@ class TestConfigHelper:
 
     def test_integration_string(self):
         """Test to confirm user_agent/integration_string is constructed properly"""
-        assert quarantine.ConfigHelper.ua_string == quarantine.__version__
+        assert quarantine.ConfigHelper().ua_string == quarantine.__version__
