@@ -16,5 +16,5 @@ class TestHaloEvents:
         baseurl = "/99/helololol-world"
         modifiers = {"trolol": "lololol"}
         result = quarantine.HaloEvents.build_url(baseurl, modifiers)
-        print result
+        print(result)
         assert re.match(r'/99/helololol-world\?trolol=lololol', result)

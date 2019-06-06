@@ -23,7 +23,7 @@ class HaloGeneral(object):
                 target_id = group["id"]
                 return target_id
         # Fall through if no match
-        print "ERROR: No group in account named %s" % group_name
+        print("ERROR: No group in account named %s" % group_name)
         sys.exit(2)
 
     def quarantine_workload(self, agent_id):

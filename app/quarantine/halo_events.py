@@ -23,7 +23,7 @@ class HaloEvents(object):
 
     def __iter__(self):
         while True:
-            print "Last event timestamp: %s" % str(self.last_event_timestamp)
+            print("Last event timestamp: %s" % str(self.last_event_timestamp))
             for event in self.get_next_batch():
                 yield event
 

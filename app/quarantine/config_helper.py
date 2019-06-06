@@ -24,8 +24,8 @@ class ConfigHelper(object):
             for line in target.readlines():
                 if not re.match('^$', line):
                     match_lines.append(line.replace('\n', ''))
-        print "Target event list:"
-        print match_lines
+        print("Target event list:")
+        print(match_lines)
         return match_lines
 
     @classmethod

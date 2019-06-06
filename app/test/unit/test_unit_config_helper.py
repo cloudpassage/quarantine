@@ -22,9 +22,5 @@ class TestConfigHelper:
 
     def test_get_timestamp_inferred(self):
         result = quarantine.ConfigHelper.get_timestamp()
-        print result
+        print(result)
         assert re.match('^\d{4}-\d{2}-\d{2}$', result)
-
-    def test_integration_string(self):
-        """Test to confirm user_agent/integration_string is constructed properly"""
-        assert quarantine.ConfigHelper().ua_string == quarantine.__version__
