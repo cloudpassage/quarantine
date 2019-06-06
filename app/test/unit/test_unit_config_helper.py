@@ -23,4 +23,4 @@ class TestConfigHelper:
     def test_get_timestamp_inferred(self):
         result = quarantine.ConfigHelper.get_timestamp()
         print(result)
-        assert re.match('^\d{4}-\d{2}-\d{2}$', result)
+        assert re.match(r'^\d{4}-\d{2}-\d{2}$', result)

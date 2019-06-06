@@ -28,7 +28,7 @@ class Matcher(object):
                 print("Bad input!  All event types must be strings!")
                 sane = False
         for item in match_list:
-            if not re.match('^(\w|_)+$', item):
+            if not re.match(r'^(\w|_)+$', item):
                 print("Invalid match item: %s" % item)
                 sane = False
         return sane
