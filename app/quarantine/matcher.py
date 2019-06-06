@@ -21,14 +21,14 @@ class Matcher(object):
         """Returns true if match list is sane."""
         sane = True
         if type(match_list) is not list:
-            print "Bad input!  Must provide a list of match strings!"
+            print("Bad input!  Must provide a list of match strings!")
             sane = False
         for item in match_list:
             if type(item) is not str:
-                print "Bad input!  All event types must be strings!"
+                print("Bad input!  All event types must be strings!")
                 sane = False
         for item in match_list:
-            if not re.match('^(\w|_)+$', item):
-                print "Invalid match item: %s" % item
+            if not re.match(r'^(\w|_)+$', item):
+                print("Invalid match item: %s" % item)
                 sane = False
         return sane
